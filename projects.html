@@ -2,9 +2,8 @@
 <html>
   <head>
     <title>projects</title>
-  </head>
   <body>
-    <button style="background-color: #34C759; color: #ffffff;" onclick="checkPassword()">Enter Code</button>
+    <button style="background-color: #34C759; color: #ffffff;" onclick="checkPassword()">Enter Project Code</button>
     <br><br><br>
     Projects
     <br>
@@ -13,14 +12,14 @@
     anotherpassword = example2
     <script>
       function checkPassword() {
-        var password = prompt("Enter your password:");
+        var password = prompt("Enter project code:");
         if (password != null) {
           if (password === "mysecretpassword") {
             window.location.href = "https://www.example.com";
           } else if (password === "anotherpassword") {
             window.location.href = "https://www.example.ca";
           } else {
-            alert("Password is incorrect. Try again!");
+            alert("Code Incorrect");
           }
         }
       }
