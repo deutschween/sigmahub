@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>projects</title>
+     <link rel="icon" type="image/jpg" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.wired.com%2Fphotos%2F592676467034dc5f91beb80e%2F16%3A9%2Fw_1862%2Cc_limit%2FMarkZuckerberg.jpg&f=1&nofb=1&ipt=5f28b84d710cf946df00b733752c7a1e5a8dd22fdac019e404e0de959e6a6bc9&ipo=images">
+  </head>
+  <body>
+    <button style="background-color: #34C759; color: #ffffff;" onclick="checkPassword()">Enter Project Code</button>
+    <br><br><br>
+    Projects
+    <br>
+    mysecretpassword = example1
+    <br>
+    anotherpassword = example2
+    <script>
+      function checkPassword() {
+        var password = prompt("Enter project code:");
+        if (password != null) {
+          if (password === "mysecretpassword") {
+            window.location.href = "https://www.example.com";
+          } else if (password === "anotherpassword") {
+            window.location.href = "https://www.example.ca";
+          } else {
+            alert("Code Incorrect");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
