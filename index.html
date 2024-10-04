@@ -4,14 +4,16 @@
     <title>projects</title>
   </head>
   <body>
-    <button onclick="checkPassword()">Enter Code</button>
+    <button style="background-color: #34C759; color: #ffffff;" onclick="checkPassword()">Enter Code</button>
+    <br><br><br><br>
+    these are my sigma projects :)
     <script>
       function checkPassword() {
         var password = prompt("Enter your password:");
         if (password != null) {
           if (password === "mysecretpassword") {
             window.location.href = "https://www.example.com";
-            } else if (password === "anotherpassword") {
+          } else if (password === "anotherpassword") {
             window.location.href = "https://www.example.ca";
           } else {
             alert("Password is incorrect. Try again!");
@@ -19,6 +21,5 @@
         }
       }
     </script>
-    these are my sigma projects :)
   </body>
 </html>
