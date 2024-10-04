@@ -4,7 +4,9 @@
     <title>Website Hub</title>
   </head>
   <body>
+    <button onclick="checkPassword()">Enter Secure Area</button>
     <script>
+      function checkPassword() {
       var password = prompt("Enter your password:");
       if (password != null) {
         if (password === "WikiOil") {
