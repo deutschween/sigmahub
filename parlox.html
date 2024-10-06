@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parlox Login Page</title>
+    <title>Parlox Login Example</title>
     <style>
+        /* Add some basic styling to the page */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -53,8 +54,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form>
+        <h2>Login to Parlox</h2>
+        <form id="login-form">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" class="form-control" placeholder="Enter username">
@@ -63,8 +64,33 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" class="form-control" placeholder="Enter password">
             </div>
-            <button class="btn">Login</button>
+            <button class="btn" id="login-btn">Login</button>
         </form>
     </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const loginBtn = document.getElementById('login-btn');
+
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            fetch('credentials.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const credentials = data.split('\n');
+                    for (const credential of credentials) {
+                        const [credUsername, credPassword] = credential.split(':');
+                        if (username === credUsername && password === credPassword) {
+                            window.location.href = 'index.html';
+                            return;
+                        }
+                    }
+                    alert('Invalid username or password');
+                });
+        });
+    </script>
 </body>
 </html>
