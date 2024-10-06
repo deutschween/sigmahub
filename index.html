@@ -1,34 +1,65 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Sigma Projects Portal</title>
-     <link rel="icon" type="image/jpg" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.wired.com%2Fphotos%2F592676467034dc5f91beb80e%2F16%3A9%2Fw_1862%2Cc_limit%2FMarkZuckerberg.jpg&f=1&nofb=1&ipt=5f28b84d710cf946df00b733752c7a1e5a8dd22fdac019e404e0de959e6a6bc9&ipo=images">
-  </head>
-  <body>
-    <h1 style="text-align: center;">Sigma Projects Portal</h1>
-    <br><br>
-    <button style="background-color: #34C759; color: #ffffff;" onclick="checkPassword()">Enter Project Code</button>
-    <br><br>
-    <button style="background-color: #007bff; color: #ffffff;" onclick="window.location.href='https://gamesbun.github.io/'">Sigma Game</button>
-    <br><br><br>
-    Projects
-    <br>
-    mysecretpassword = example1
-    <br>
-    anotherpassword = example2
-    <script>
-      function checkPassword() {
-        var password = prompt("Enter project code:");
-        if (password != null) {
-          if (password === "mysecretpassword") {
-            window.location.href = "https://www.example.com";
-          } else if (password === "anotherpassword") {
-            window.location.href = "https://www.example.ca";
-          } else {
-            alert("Code Incorrect");
-          }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-      }
-    </script>
-  </body>
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav li {
+            margin-right: 20px;
+        }
+        
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><button onclick="location.href='sports.html'">Sports</button></li>
+                <li><button onclick="location.href='politics.html'">Politics</button></li>
+                <li><button onclick="location.href='entertainment.html'">Entertainment</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Add your homepage content here -->
+        <h1>Welcome to our News Website!</h1>
+        <p>This is the homepage of our news website. Click on the buttons above to navigate to different sections.</p>
+    </main>
+</body>
 </html>
