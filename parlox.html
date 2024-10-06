@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parlox Login Example</title>
+    <title>Parlox Login Page</title>
     <style>
         /* Add some basic styling to the page */
         body {
@@ -66,11 +66,31 @@
             </div>
             <button class="btn" id="login-btn">Login</button>
         </form>
+        <button class="btn" id="create-account-btn">Create Account</button>
+    </div>
+
+    <div id="create-account-form" style="display: none;">
+        <h2>Create Account</h2>
+        <form id="create-account-form-inputs">
+            <div class="form-group">
+                <label for="new-username">Username:</label>
+                <input type="text" id="new-username" class="form-control" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" class="form-control" placeholder="Enter password">
+            </div>
+            <button class="btn" id="create-account-submit">Create Account</button>
+        </form>
     </div>
 
     <script>
         const loginForm = document.getElementById('login-form');
         const loginBtn = document.getElementById('login-btn');
+        const createAccountBtn = document.getElementById('create-account-btn');
+        const createAccountForm = document.getElementById('create-account-form');
+        const createAccountFormInputs = document.getElementById('create-account-form-inputs');
+        const createAccountSubmit = document.getElementById('create-account-submit');
 
         loginBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -91,6 +111,25 @@
                     alert('Invalid username or password');
                 });
         });
-    </script>
-</body>
-</html>
+
+        createAccountBtn.addEventListener('click', () => {
+            createAccountForm.style.display = 'block';
+        });
+
+        createAccountSubmit.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newUsername = document.getElementById('new-username').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            fetch('credentials.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const credentials = data.split('\n');
+                    for (const credential of credentials) {
+                        const [credUsername, credPassword] = credential.split(':');
+                        if (newUsername === credUsername) {
+                            alert('Username already exists');
+                            return;
+                        }
+                    }
+                   
