@@ -1,4 +1,4 @@
-<!-- parlox.html -->
+<!-- login.html -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +21,7 @@
             background-color: #fff;
             border: 1px solid #ddd;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
         
         .form-group {
@@ -33,6 +34,11 @@
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
         }
         
         .btn {
@@ -50,11 +56,24 @@
         .btn:hover {
             background-color: #3e8e41;
         }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-header h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Login to Parlox</h2>
+        <div class="login-header">
+            <h2>Login to Parlox</h2>
+        </div>
         <form id="login-form">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -84,7 +103,7 @@
                     for (const credential of credentials) {
                         const [credUsername, credPassword] = credential.split(':');
                         if (username === credUsername && password === credPassword) {
-                            window.location.href = 'welcome.html';
+                            window.location.href = 'index.html';
                             return;
                         }
                     }
