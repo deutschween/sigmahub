@@ -67,6 +67,15 @@
             font-weight: bold;
             color: #4CAF50;
         }
+        
+        .admin-btn {
+            background-color: #3498db;
+            color: #fff;
+        }
+        
+        .admin-btn:hover {
+            background-color: #2e6da4;
+        }
     </style>
 </head>
 <body>
@@ -85,11 +94,13 @@
             </div>
             <button class="btn" id="login-btn">Login</button>
         </form>
+        <button class="btn admin-btn" id="admin-login-btn">Login as Admin</button>
     </div>
 
     <script>
         const loginForm = document.getElementById('login-form');
         const loginBtn = document.getElementById('login-btn');
+        const adminLoginBtn = document.getElementById('admin-login-btn');
 
         loginBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -108,6 +119,26 @@
                         }
                     }
                     alert('Invalid username or password');
+                });
+        });
+
+        adminLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const adminUsername = prompt('Enter admin username:');
+            const adminPassword = prompt('Enter admin password:');
+
+            fetch('admin_credentials.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const adminCredentials = data.split('\n');
+                    for (const credential of adminCredentials) {
+                        const [adminUser , adminPass] = credential.split(':');
+                        if (adminUsername === adminUser  && adminPassword === adminPass) {
+                            window.location.href = 'admin_panel.html';
+                            return;
+                        }
+                    }
+                    alert('Invalid admin username or password');
                 });
         });
     </script>
